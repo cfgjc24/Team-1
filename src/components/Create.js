@@ -78,9 +78,11 @@ function Signup() {
         </div>
         <div className="btn">
           {error ? <p className="login-error">{error}</p> : null}
-          <button title="Sign up" aria-label="Signup" type="submit">
-            Create account
-          </button>
+          <Link to="/menu">
+            <button title="Login" aria-label="Login" type="submit">
+              Create account
+            </button>
+          </Link>
         </div>
       </form>
       <div className="option">

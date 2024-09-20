@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
 
-const HomePage = () => {
+const Menu = () => {
   return (
-    <div className="homepage">
+    <div className="menupage">
       {/* Main Section */}
       <div className="intro">
         <div className="intro-content">
-            <h1>First Generation Investors</h1>
-            <p>Get started today!</p>
-          <Link to="/login">
-            <button className="cta-button">Login</button>
+          <Link to="/student">
+            <button className="cta-button">Student</button>
           </Link>
-          <Link to="/create">
-            <button className="cta-button">Create Account</button>
+          <Link to="/tutor">
+            <button className="cta-button">Tutor</button>
+          </Link>
+          <Link to="/admin">
+            <button className="cta-button">Admin</button>
           </Link>
         </div>
       </div>
@@ -40,4 +40,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Menu;

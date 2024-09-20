@@ -79,9 +79,11 @@ function Login() {
         </div>
         <div className="btn">
           {error ? <p className="login-error">{error}</p> : null}
-          <button title="Login" aria-label="Login" type="submit">
-            Login
-          </button>
+          <Link to="/menu">
+            <button title="Login" aria-label="Login" type="submit">
+              Login
+            </button>
+          </Link>
         </div>
       </form>
       <div className="option">
