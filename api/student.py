@@ -25,16 +25,6 @@ class Student(BaseModel):
 
 
 
-items = []
-
-
-
-
-
-
-
-
-
 
 
 @app.get("/")
