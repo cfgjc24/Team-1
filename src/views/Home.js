@@ -20,7 +20,7 @@ const HomePage = () => {
       </div>
 
       <div className="features">
-        <h2>Name</h2>
+        <h2>Key Information</h2>
         <div className="features-list">
           <div className="feature">
             <h3>OUR MISSION</h3>
