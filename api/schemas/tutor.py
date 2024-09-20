@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from student import *
+from api.schemas.student import *
 
 app = FastAPI()
 
