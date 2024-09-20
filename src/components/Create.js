@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {  AuthErrorCodes, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthErrorCodes, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { firebaseApp } from "../helpers/firebaseConfig";
 
-function Login() {
+function Signup() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
 
@@ -17,19 +17,18 @@ function Login() {
     let email = input.email.toLowerCase().trim();
     let password = input.password;
 
-    // sign in user
-    signInWithEmailAndPassword(auth, email, password)
+    // creating a new user
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        // Signed up
         console.log(userCredential.user);
         // ...
       })
       .catch((err) => {
-        if (
-        err.code === AuthErrorCodes.INVALID_PASSWORD ||
-        err.code === AuthErrorCodes.USER_DELETED
-      ) {
-        setError("The email address or password is incorrect");
+        if (err.code === AuthErrorCodes.WEAK_PASSWORD) {
+        setError("The password is too weak.");
+      } else if (err.code === AuthErrorCodes.EMAIL_EXISTS) {
+        setError("The email address is already in use.");
       } else {
         console.log(err.code);
         alert(err.code);
@@ -37,7 +36,7 @@ function Login() {
       });
   };
 
-  const handleChange = (e) => {
+   const handleChange = (e) => {
     setInput((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -47,8 +46,8 @@ function Login() {
   return (
     <div className="form-body">
       <form autoComplete="off" className="form" onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <p>Fill the form below to sign in to your account.</p>
+        <h1>Sign Up</h1>
+        <p>Fill the form below to create your account.</p>
         <div className="email-input">
           <input
             name="email"
@@ -79,19 +78,18 @@ function Login() {
         </div>
         <div className="btn">
           {error ? <p className="login-error">{error}</p> : null}
-          <button title="Login" aria-label="Login" type="submit">
-            Login
+          <button title="Sign up" aria-label="Signup" type="submit">
+            Create account
           </button>
         </div>
       </form>
       <div className="option">
         <p>
-          Don't have an account?
-          <Link to="/signup">Sign Up</Link>
+          Already have an account?
+          <Link to="/login">Sign in</Link>
         </p>
       </div>
     </div>
   );
 }
-
-export default Login;
+export default Signup;
