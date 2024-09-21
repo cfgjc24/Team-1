@@ -107,4 +107,25 @@
     text-decoration: none;
     cursor: pointer;
 }
-  
+
+#notes {
+  width: 550px; 
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#comments {
+  width: 550px; 
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submit {
+  padding-top: 10px;
+}
