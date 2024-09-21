@@ -1,0 +1,38 @@
+  .menupage {
+    padding-bottom: 100px;
+    margin-top: 80px;
+  }
+  
+  .introMenu {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .intro-content-menu {
+    color: white;
+    z-index: 2;
+    font-size: 22px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0);
+  }
+
+  .nav-button{
+    margin: 100px;
+    background-color: #67b0e9;
+    padding: 75px 100px;
+    border: none;
+    color: #ffffff;
+    font-size: 30px;
+  }
+
+  .nav-button:hover {
+    background-color: #265f8a;
+  }
