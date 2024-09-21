@@ -3,6 +3,7 @@ import './Admin.css';
 import Dashboard from "../components/dashboard/Dashboard"
 import StudentProfile from "../components/studentprofile/StudentProfile"
 import TutorProfile from "../components/tutor/TutorProfile"
+import AlumniProfile from "../components/alumni/AlumniProfile"
 // Component to display content based on the selected tab
 function PageSection({ tab }) {
   if (tab === "Dashboard") {
@@ -12,7 +13,7 @@ function PageSection({ tab }) {
   } else if (tab === "TutorProfiles") {
     return <TutorProfile/>;
   } else if (tab === "AlumniPortal") {
-    return <h2>Alumni Portal Content</h2>;
+    return <AlumniProfile/>;
   }
   return <h2>Welcome to the Admin Panel</h2>;
 }

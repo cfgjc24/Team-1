@@ -5,7 +5,6 @@ const StudentTable = () => {
   return (
     <div className="student_table">
       <div className="table-container">
-        <h2>Student Information</h2>
         <table>
           <thead>
             <tr>

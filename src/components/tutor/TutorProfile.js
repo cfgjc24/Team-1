@@ -22,7 +22,6 @@ function TutorProfile() {
 
   return (
     <div className="tutor-container">
-      <h1>Tutors</h1>
       {tutorsData.length > 0 ? (
         <table className="tutors-table">
           <thead>
@@ -59,7 +58,7 @@ function TutorProfile() {
           </tbody>
         </table>
       ) : (
-        <p>No tutors available.</p>
+        <p>Loading Tutors...</p>
       )}
     </div>
   );
