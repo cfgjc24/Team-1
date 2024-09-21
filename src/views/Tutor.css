@@ -1,0 +1,49 @@
+body {
+    background-color: white;
+    color: #32373B;
+}
+
+.heading-box {
+    /* width: 250px;
+    height: 80px;  */
+    background-color: #0466C8; 
+    border: 2px solid #2c3e50; 
+    padding: 5px 5px;
+    margin: 20px; 
+    
+}
+
+h1 {
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 25px;
+    font-size: 50px;
+
+}
+
+h2 {
+    color: white;
+    padding-left: 55px;
+    padding-bottom: 30px;
+}
+
+.left-side {
+    background-color: #343A40;
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main-page {
+    background-color: white;
+}
+
+h3 {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+    color: black;
+}
+  
