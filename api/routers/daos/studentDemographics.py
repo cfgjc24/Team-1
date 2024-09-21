@@ -11,12 +11,12 @@ class StudentDemographicsDAO:
 
     def create(self, demographics: StudentDemographics) -> StudentDemographics:
         data = demographics.dict()
-        data["demographicID"] = str(field(default_factory=uuid4))  
+        data["demographicID"] = str(uuid4()))  
         doc_ref = db.collection(self.collection_name).document(str(demographics.demographicID))
         doc_ref.set(data)  
         return self.get(demographics.demographicID)  
     
-    def get(self, demographicID: UUID) -> StudentDemographics:
+    def get(self, demographicID: str) -> StudentDemographics:
         doc_ref = db.collection(self.collection_name).document(str(demographicID))
         doc = doc_ref.get()
         if doc.exists:
@@ -31,50 +31,50 @@ class StudentDemographicsDAO:
             if doc.get().to_dict()
         ]
 
-    def update(self, demographicID: UUID, demographics_update: StudentDemographics) -> StudentDemographics:
+    def update(self, demographicID: str, demographics_update: StudentDemographics) -> StudentDemographics:
         data = demographics_update.dict()
         doc_ref = db.collection(self.collection_name).document(str(demographicID))
         doc_ref.update(data)
         return self.get(demographicID)
 
 
-    def delete(self, id: UUID) -> None:
+    def delete(self, id: str) -> None:
         db.collection(self.collection_name).document(str(id)).delete()
 
     # Gets age demographic
-    def get_age(self, demographicID: UUID) -> int:
+    def get_age(self, demographicID: str) -> int:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.age
         return None
     # Updates age demographic
-    def update_age(self, demographicID: UUID, age: int) -> StudentDemographics:
+    def update_age(self, demographicID: str, age: int) -> StudentDemographics:
         doc_ref = db.collection(self.collection_name).document(str(demographicID))
         doc_ref.update({"age": age})
         return self.get(demographicID)
 
     # Gets gender demographic
-    def get_gender(self, demographicID: UUID) -> str:
+    def get_gender(self, demographicID: str) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.gender
         return None
 
     # Gets disability status demographic
-    def get_disability_status(self, demographicID: UUID) -> bool:
+    def get_disability_status(self, demographicID: str) -> bool:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.hasDisability
         return None
 
     # Gets race demographic
-    def get_race(self, demographicID: UUID) -> str:
+    def get_race(self, demographicID: str) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.race
         return None
     # gets sexuality demographic
-    def get_sexuality(self, demographicID: UUID) -> str:
+    def get_sexuality(self, demographicID: str) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.sexuality
