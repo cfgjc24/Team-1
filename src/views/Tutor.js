@@ -21,14 +21,14 @@ import './Tutor.css';
                 <h3>Overall Progress</h3>
             </div>
             <div>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
-                <button>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
+                <button className='button'>Email</button>
             </div>
         </div>
 	  </div>
