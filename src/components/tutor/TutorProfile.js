@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import './TutorProfile.css';
 
 function TutorProfile() {
@@ -21,7 +21,7 @@ function TutorProfile() {
   }, []);
 
   return (
-    <div className="tutor-container">
+    <div className="table-container">
       {tutorsData.length > 0 ? (
         <table className="tutors-table">
           <thead>
@@ -43,7 +43,7 @@ function TutorProfile() {
                 <td>{tutor.assigned_high_school || "N/A"}</td>
                 <td>{tutor.college || "N/A"}</td>
                 <td>
-                  {tutor.assigned_students.length > 0 ? (
+                  {tutor.assigned_students && tutor.assigned_students.length > 0 ? (
                     <ul>
                       {tutor.assigned_students.map((student, index) => (
                         <li key={index}>{student}</li>

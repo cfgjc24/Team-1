@@ -1,50 +1,47 @@
-.tutor-container {
-    width: 100%;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  .tutors-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .tutors-table th, .tutors-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .tutors-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .tutors-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .tutors-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .tutors-table ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .tutors-table ul li {
-    margin-bottom: 5px;
-  }
-  
-  .tutors-table td ul li {
-    background-color: #f4f4f4;
-    padding: 5px;
-    border-radius: 4px;
-    display: inline-block;
-  }  
-  .part-title{
-    color:black;
-  }
+.table-container {
+  width: 100%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+td ul li {
+  background-color: #f4f4f4;
+  padding: 5px;
+  border-radius: 4px;
+  display: inline-block;
+}
