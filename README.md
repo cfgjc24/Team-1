@@ -23,7 +23,7 @@ http://127.0.0.1:8000/docs#/
 
 Try out the get and post!
 
-##For Frontend
+## For Frontend
 ```bash
 npm install
 npm start
