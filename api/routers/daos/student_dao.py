@@ -62,8 +62,15 @@ class StudentDAO:
         doc_ref.update(data)
         return self.get_student(id)
 
-
-    def get_student(self, id: str) -> Student:
+    def get_students(self) -> List[Student]:
+        student_ref = db.collection(self.collection_name)
+        return [
+            Student(**doc.get().to_dict())
+            for doc in student_ref.list_documents()
+            if doc.get().to_dict()
+        ]
+        
+   def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
