@@ -62,7 +62,7 @@ class StudentDAO:
         doc_ref.update(data)
         return self.get_student(id)
 
-    def get_students(self) -> List[Student]:
+   def get_students(self) -> List[Student]:
         student_ref = db.collection(self.collection_name)
         return [
             Student(**doc.get().to_dict())
@@ -100,7 +100,7 @@ class StudentDAO:
 
 
     # Retrieve the parent information of a student by studentID.
-    def get_parent_info(self, id: str) -> map:
+   def get_parent_info(self, id: str) -> map:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
@@ -112,7 +112,7 @@ class StudentDAO:
         return None
 
     # Retrieve the high school information of a student by studentID.
-    def get_high_school_info(self, id: str) -> str:
+   def get_high_school_info(self, id: str) -> str:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:

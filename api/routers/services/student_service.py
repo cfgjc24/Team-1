@@ -20,7 +20,7 @@ class StudentService:
         return student_dao.get_first_last_name(id)
 
 
-    def list_students(self) -> List[Students]:
+    def list_students(self) -> List[Student]:
         return student_dao.get_students()
 
     def edit_module_completion_status(self, id:str, student_update: Student, updated_module: int):
