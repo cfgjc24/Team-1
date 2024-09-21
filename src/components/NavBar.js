@@ -10,10 +10,10 @@ function NavBar() {
       </Link>
 
       <ul className="nav-right">
-        <div className="steps-button">
+        <div className="login-button">
           <Link to="/login">Login</Link>
         </div>
-        <div className="login-button">
+        <div className="create-button">
           <Link to="/create">Create Account</Link>
         </div>
       </ul>

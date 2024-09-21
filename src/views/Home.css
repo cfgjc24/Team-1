@@ -1,4 +1,4 @@
-.homepage {
+  .homepage {
     padding-bottom: 100px;
     margin-top: 80px;
   }
@@ -8,6 +8,7 @@
     width: 100%;
     height: 600px;
     background-size: cover;
+    background-image: url('/public/background.png');; 
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -23,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); 
+    background-color: rgba(0, 0, 0, 0.3); 
     z-index: 1; 
   }
   
@@ -34,48 +35,28 @@
     text-shadow: 2px 2px 8px rgba(0, 0, 0);
   }
   
-  .cta-button {
-    background-color: #32382D;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    box-shadow: 8px rgba(0, 0, 0);
-  }
-  
-  .cta-button:hover {
-    background-color: #4A5342;
-  }
-  
-  .features {
+  .information {
     text-align: center;
     padding: 50px 0;
     background-color: #fafafa;
   }
   
-  .features-list {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  
-  .feature {
-    text-align: center;
-    width: 250px;
-  }
-  
-  .feature img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .cta-section {
-    text-align: center;
-    padding: 50px;
-    background-color: #a5a5a5;
-    color: white;
-  }
-  
+  .title {
+    font-family: 'Gill Sans', serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 80px;
+}
+
+.heading{
+    font-family: 'Gill Sans', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #67b0e9;
+}
+
+.paragraph{
+    font-family: 'Gill Sans', serif;
+    font-size: 25px;
+    font-weight: 400;
+}
