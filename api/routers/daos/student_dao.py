@@ -6,11 +6,11 @@ from schemas.student_schema import FormInfo, ParentData, StudentDemographics, St
 class StudentDAO: 
     # this is the name of the tables that
     # youll be referencing 
-   collection_name = "Student" 
+    collection_name = "Student" 
 
 
 
-   def create(self, student_create: Student) -> Student: 
+    def create(self, student_create: Student) -> Student: 
         data = student_create.dict()
         gen_uuid = uuid4()
 
@@ -37,7 +37,7 @@ class StudentDAO:
 
 
    #edits the modules that they have done 
-   def edit_module_completion_status(self, id: str,  updated_module: int, student_update: Student) :
+    def edit_module_completion_status(self, id: str,  updated_module: int, student_update: Student) :
         data = student_update.dict()
         doc_ref = db.collection(self.collection_name).document(str(id))
         
@@ -63,14 +63,14 @@ class StudentDAO:
         return self.get_student(id)
 
 
-   def get_student(self, id: str) -> Student:
+    def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
             return Student(**doc.to_dict())
         return 
     
-   def get_form_information(self, id: str) -> map:
+    def get_form_information(self, id: str) -> map:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
@@ -80,7 +80,7 @@ class StudentDAO:
         else:
             print("No such document exists.")
 
-   def get_first_last_name(self, id: str) -> []:
+    def get_first_last_name(self, id: str) -> []:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
