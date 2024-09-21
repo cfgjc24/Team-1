@@ -1,33 +1,67 @@
-import React from "react";
-import ProgressBar from "./progressBarComponent"; // Import the progress bar component
-import './progressBar.css';  
+import React, {useState, useEffect} from "react";
+import './TutorProfile.css';
 
-const studentsData = [
-  { name: "John Doe", progress: 0.75 },
-  { name: "Jane Smith", progress: 0.45 },
-  { name: "Alice Johnson", progress: 0.90 },
-  { name: "Bob Williams", progress: 0.60 },
-];
+function TutorProfile() {
+  const [tutorsData, setTutors] = useState([]);
 
-function tutorAdmin() {
+  useEffect(() => {
+    fetch("/tutors")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setTutors(data); // Assuming data is already the array of tutors
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div className="tutor-container">
-      <h1>Tutor: Student Progress</h1>
-
-      {/* Dynamically render student progress */}
-      {studentsData.map((student, index) => (
-        <div key={index} className="student-progress">
-          <span className="student-label">{student.name}</span> {/* Add student name */}
-          <ProgressBar
-            progressValue={student.progress}
-            backgroundClassName="progress-bar-background"
-            barClassName="progress-bar"
-            sidePadding="5px"
-          />
-        </div>
-      ))}
+      {tutorsData.length > 0 ? (
+        <table className="tutors-table">
+          <thead>
+            <tr>
+              <th>Tutor Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Assigned High School</th>
+              <th>College</th>
+              <th>Assigned Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tutorsData.map((tutor) => (
+              <tr key={tutor.TutorID}>
+                <td>{`${tutor.first_name} ${tutor.last_name}`}</td>
+                <td>{tutor.email || "N/A"}</td>
+                <td>{tutor.phone_number || "N/A"}</td>
+                <td>{tutor.assigned_high_school || "N/A"}</td>
+                <td>{tutor.college || "N/A"}</td>
+                <td>
+                  {tutor.assigned_students.length > 0 ? (
+                    <ul>
+                      {tutor.assigned_students.map((student, index) => (
+                        <li key={index}>{student}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    "No assigned students"
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>Loading Tutors...</p>
+      )}
     </div>
   );
 }
 
-export default tutorAdmin;
+export default TutorProfile;

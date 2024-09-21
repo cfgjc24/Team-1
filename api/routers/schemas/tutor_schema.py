@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from schemas.student import *
+from schemas.student_schema import *
 
 
 class Tutor(BaseModel):
