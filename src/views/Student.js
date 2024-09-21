@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Student.css';
+import './student.css';
 
 // Your initial lesson data
 const initialLessons = [

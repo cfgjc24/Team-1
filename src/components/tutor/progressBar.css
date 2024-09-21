@@ -1,11 +1,13 @@
 /* progressbarstyles.css */
 
+/* Container for the whole section */
 .tutor-container {
   font-family: sans-serif;
   padding: 20px;
-  text-align: center; /* Center the text (optional) */
+  text-align: center; /* Center the text */
 }
 
+/* Each student's progress bar and label */
 .student-progress {
   margin-bottom: 20px;
   display: flex;
@@ -13,12 +15,21 @@
   align-items: center; /* Center the bars horizontally */
 }
 
+h2 {
+  font-size: 24px;
+  margin-top: 200px;
+  width: 95%;
+  color: black; 
+}
+
+/* Label above each progress bar */
 .student-label {
   font-size: 18px;
   margin-bottom: 5px;
-  color: black; /* Adjust color if needed */
+  color: black; 
 }
 
+/* Progress bar container */
 .progress-bar-background {
   position: relative;
   height: 24px;
@@ -37,3 +48,5 @@
   border-radius: 5px;
   transition: width 0.5s ease-in-out;
 }
+
+

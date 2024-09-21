@@ -24,6 +24,7 @@ function Dashboard() {
             <h5>Upcoming Meetups</h5>
             <p>No meetups assigned.</p>
           </div>
+          <button className="getTutors-button">Get Tutors</button>
         </div>
       </div>
     </div>

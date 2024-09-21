@@ -12,7 +12,7 @@ const studentsData = [
 function tutorAdmin() {
   return (
     <div className="tutor-container">
-      <h1>Tutor: Student Progress</h1>
+      <h2>Tutor's Status</h2>
 
       {/* Dynamically render student progress */}
       {studentsData.map((student, index) => (

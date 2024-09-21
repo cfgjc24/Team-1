@@ -1,17 +1,18 @@
 import React from "react";
-import './StudentProfile.css'; // Link to your CSS file
+import './AlumniProfile.css'; 
 
-const StudentTable = () => {
-  return ( 
+const AlumniProfile = () => {
+  return (
     <div className="student_table">
       <div className="table-container">
-        <h2>Student Information</h2>
+        <h2>Alumni Information</h2>
         <table>
           <thead>
             <tr>
-              <th>First</th>
-              <th>Last</th>
-              <th>Email</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>LinkedIn</th> 
             </tr>
           </thead>
           <tbody>
@@ -47,4 +48,4 @@ const StudentTable = () => {
   );
 };
 
-export default StudentTable;
+export default AlumniProfile;

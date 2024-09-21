@@ -36,4 +36,3 @@ import './Tutor.css';
   }
   
   export default Tutor;
-  
