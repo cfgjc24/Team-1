@@ -7,21 +7,40 @@ class StudentDemographics(BaseModel):
     race:str = None 
     gender:str = None 
     sexuality:str = None
-    disability:str = None 
-    first_gen:bool = False
+    hasDisability:bool = False
+    is_first_gen:bool = False
+    age:int = 0
+    demographicID: int = 0
+    studentID: int = 0
 
 class Student(BaseModel):
     first_name: str = None
     last_name: str = None
     high_school: str = None
+    DOB: str = None
+    parent_name: str = None
+    parent_email: str = None
+    parent_phone_number: str = None
     email: str = None
     phone_number: str = None 
-    adress: str = None 
+    address_line_one: str = None 
+    address_line_two: str = None
     city: str = None 
     state: str = None 
+    country: str = None
     zip_code:str = None 
     studentDemographic: StudentDemographics = None 
+    studentProgress: StudentProgress = None
+    tutorID: int = 0
+    studentID: int = 0
+    
 
+class StudentProgress(BaseModel):
+    is_onboarded: bool = False
+    modules_completed: int = 0
+    studentID: int = 0
+    student_progress_ID: int = 0
+    is_graduated: bool = False
 
 
 
