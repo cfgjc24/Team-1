@@ -15,7 +15,8 @@
 }
 
 table {
-  border: 2px solid rgb(10, 214, 232);
+  border-color: black;
+  border-width: 10px;
   width: 800px;
   height: 300px;
   position: relative;
@@ -25,7 +26,7 @@ table {
 h2 {
   font-size: 24px;
   margin-top: 200px;
-  color: black; /* Adjust color if needed */
+  color: black;
 }
 
 th {
