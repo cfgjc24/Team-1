@@ -17,29 +17,30 @@ function PageSection({ tab }) {
   return <h2>Welcome to the Admin Panel</h2>;
 }
 
-// Sidebar component, independent of the navbar
-function Sidebar({ setTab }) {
-  return (
-    <div className="sidebar">
-      <ul>
-        <li onClick={() => setTab("Dashboard")}>Dashboard</li>
-        <li onClick={() => setTab("StudentProfiles")}>Student Profiles</li>
-        <li onClick={() => setTab("TutorProfiles")}>Tutor Profiles</li>
-        <li onClick={() => setTab("AlumniPortal")}>Alumni Portal</li>
-      </ul>
-    </div>
-  );
-}
+// Viewbar component
+function Viewbar({ setTab }) {
+    return (
+      <div className="viewbar">
+        <ul className="horizontal-list">
+          <li onClick={() => setTab("Dashboard")}>Dashboard</li>
+          <li onClick={() => setTab("StudentProfiles")}>Student Profiles</li>
+          <li onClick={() => setTab("TutorProfiles")}>Tutor Profiles</li>
+          <li onClick={() => setTab("AlumniPortal")}>Alumni Portal</li>
+        </ul>
+      </div>
+    );
+  }
+  
 
 function Admin() {
-  const [tab, setTab] = useState("");
+  const [tab, setTab] = useState("Dashboard");
 
   return (
     <div className="admin-container">
 
-      {/* Content section with Sidebar and PageSection */}
+      {/* Content section with Viewbar and PageSection */}
       <div className="main-content">
-        <Sidebar setTab={setTab} />
+        <Viewbar setTab={setTab} />
         <div className="page-section">
           <PageSection tab={tab} />
         </div>
