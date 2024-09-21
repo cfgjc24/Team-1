@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, TypeAdapter
+from pydantic import BaseModel, TypeAdapter, Field
 from typing_extensions import TypedDict
+
 app = FastAPI()
 
 # this is a dictionary for form information in the student obj
@@ -26,8 +27,8 @@ class StudentDemographics(BaseModel):
     hasDisability:bool = False
     is_first_gen:bool = False
     age:int = 0
-    demographicID: int = 0
-    studentID: str = 0
+    demographicID: str = None
+    studentID: str = None
 
 class Student(BaseModel):
 
@@ -43,20 +44,30 @@ class Student(BaseModel):
     phone_number: str = None 
     studentDemographic: StudentDemographics = None 
     studentProgress: StudentProgress = None
-    tutorID: str = 0
-    studentID: str = 0
+    tutorID: str = None
+    studentID: str = None
     
 
 class StudentProgress(BaseModel):
     is_onboarded: bool = False
     modules_completed: int = 0
-    studentID: int = 0
-    student_progress_ID: int = 0
+    studentID: str = None
+    student_progress_ID: str = None
     is_graduated: bool = False
 
 
 
+# put request (upload the student data)
 
+#get request to get the demographic info 
+
+# get email
+
+# get first / last name
+ 
+ # get form information 
+ # get the high school 
+ #get parent data (dictionary)
 
 @app.get("/")
 def root():
