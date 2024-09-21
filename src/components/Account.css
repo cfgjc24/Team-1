@@ -33,7 +33,7 @@
     margin-bottom:10px;
 }
 
-.button {
+.submitButton {
     background-color: #67b0e9;
     color: #ffffff;
     padding: 10px 20px;
@@ -44,7 +44,7 @@
     border: none;
 }
 
-.button:hover {
+.submitButton:hover {
     background-color: #265f8a;
   }
 
