@@ -17,7 +17,19 @@ import './Tutor.css';
             <h2>Student Name</h2>
         </div>
         <div className='main-page'>
-            <h3>Overall Progress</h3>
+            <div className='main-page-heading'>
+                <h3>Overall Progress</h3>
+            </div>
+            <div>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+                <button>Email</button>
+            </div>
         </div>
 	  </div>
 	);

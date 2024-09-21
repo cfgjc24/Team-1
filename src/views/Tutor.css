@@ -4,13 +4,12 @@ body {
 }
 
 .heading-box {
-    /* width: 250px;
-    height: 80px;  */
-    background-color: #0466C8; 
+    /* width: 250px; */
+    height: 80px;
+    background-color: #67b0e9; 
     border: 2px solid #2c3e50; 
     padding: 5px 5px;
     margin: 20px; 
-    
 }
 
 h1 {
@@ -18,7 +17,6 @@ h1 {
     padding-left: 10px;
     padding-bottom: 25px;
     font-size: 50px;
-
 }
 
 h2 {
@@ -38,6 +36,12 @@ h2 {
 
 .main-page {
     background-color: white;
+    justify-content: right;
+    color: black;
+    padding: 10px;
+    margin-left: 20%;
+    font-size: 50px;
+    padding-top: 60px;
 }
 
 h3 {
@@ -45,5 +49,22 @@ h3 {
     margin: 0 10px;
     text-align: center;
     color: black;
+    padding-left: 20px;
+}
+
+.main-page-heading {
+    background-color: #D9D9D9; 
+    padding: 5px;
+    border-radius: 20px; 
+    width: 500px;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #67b0e9;
+    margin-bottom: 5%;
+    margin-left: 80%;
 }
   
