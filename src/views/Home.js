@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
 
 const HomePage = () => {
@@ -8,33 +7,15 @@ const HomePage = () => {
       {/* Main Section */}
       <div className="intro">
         <div className="intro-content">
-            <h1>First Generation Investors</h1>
-            <p>Get started today!</p>
-          <Link to="/login">
-            <button className="cta-button">Login</button>
-          </Link>
-          <Link to="/create">
-            <button className="cta-button">Create Account</button>
-          \</Link>
+            <h1 className="title">FIRST GENERATION INVESTORS</h1>
+            <p>Inspiring students to own their financial futures</p>
         </div>
       </div>
 
-      <div className="features">
-        <h2>Name</h2>
-        <div className="features-list">
-          <div className="feature">
-            <h3>OUR MISSION</h3>
-            <p>We are a non-profit 501(c)3 organization that teaches high school students the power of investing, and brings classroom lessons to life by providing students with real money to invest.</p>
-          </div>
-          <div className="feature">
-            <h3>STUDENTS</h3>
-            <p>2700+</p>
-          </div>
-          <div className="feature">
-            <h3>Feature 3</h3>
-            <p>Lorem ipsum.</p>
-          </div>
-        </div>
+      <div className="information">
+        <h2 className="heading">Our Mission</h2>
+        <h3 className="paragraph">First Generation Investors (FGI) is a non-profit 501(c)3 organization that teaches high school
+            <br></br>students the power of investing, and brings classroom lessons to life by providing students with <strong>real money to invest.</strong></h3>
       </div>
     </div>
   );

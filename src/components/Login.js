@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {  AuthErrorCodes, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseApp } from "../helpers/firebaseConfig";
+import './Account.css';
 
 function Login() {
   const [input, setInput] = useState({ email: "", password: "" });
@@ -45,10 +46,14 @@ function Login() {
   };
 
   return (
-    <div className="form-body">
+    <div className="form-all">
+       <div className="form-title">
+        <h1 className="form-title-label">Login</h1>
+       </div>
       <form autoComplete="off" className="form" onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <p>Fill the form below to sign in to your account.</p>
+        <label htmlFor="email" className="label-name">
+            <span className="content-name">Email</span>
+        </label>
         <div className="email-input">
           <input
             name="email"
@@ -58,11 +63,12 @@ function Login() {
             value={input.email}
             required
             autoComplete="true"
+            className="inputStyle"
           />
-          <label htmlFor="email" className="label-name">
-            <span className="content-name">Email</span>
-          </label>
         </div>
+        <label htmlFor="password" className="label-name">
+            <span className="content-name">Password</span>
+        </label>
         <div className="password-input">
           <input
             name="password"
@@ -72,24 +78,24 @@ function Login() {
             type="password"
             required
             autoComplete="true"
+            className="inputStyle"
           />
-          <label htmlFor="password" className="label-name">
-            <span className="content-name">Password</span>
-          </label>
         </div>
         <div className="btn">
           {error ? <p className="login-error">{error}</p> : null}
-          <button title="Login" aria-label="Login" type="submit">
-            Login
-          </button>
+          <Link to="/menu" className="link">
+            <button className="submitButton" title="Login" aria-label="Login" type="submit">
+              Login
+            </button>
+          </Link>
         </div>
-      </form>
-      <div className="option">
+        <div className="option">
         <p>
           Don't have an account?
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/create" className="link"> Create Account</Link>
         </p>
       </div>
+      </form>
     </div>
   );
 }
