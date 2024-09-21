@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Admin.css';
 import Dashboard from "../components/dashboard/Dashboard"
 import StudentProfile from "../components/studentprofile/StudentProfile"
-
+import TutorProfile from "../components/tutor/TutorProfile"
 // Component to display content based on the selected tab
 function PageSection({ tab }) {
   if (tab === "Dashboard") {
@@ -10,7 +10,7 @@ function PageSection({ tab }) {
   } else if (tab === "StudentProfiles") {
     return <StudentProfile/>;
   } else if (tab === "TutorProfiles") {
-    return <h2>Tutor Profiles Content</h2>;
+    return <TutorProfile/>;
   } else if (tab === "AlumniPortal") {
     return <h2>Alumni Portal Content</h2>;
   }
