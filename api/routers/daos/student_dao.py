@@ -64,4 +64,25 @@ class StudentDAO:
             print("no such entry exists in student table")
 
 
+    # Retrieve the parent information of a student by studentID.
+    def get_parent_info(self, id: str) -> map:
+        doc_ref = db.collection(self.collection_name).document(str(id))
+        doc = doc_ref.get()
+        if doc.exists:
+            doc_dict = doc.to_dict()
+            parent_info = doc_dict.get('parent_data', None)           
+            return parent_info              
+        else:
+            print("No such student exists.")
+        return None
 
+    # Retrieve the high school information of a student by studentID.
+    def get_high_school_info(self, id: str) -> str:
+        doc_ref = db.collection(self.collection_name).document(str(id))
+        doc = doc_ref.get()
+        if doc.exists:
+            high_school_info = doc.to_dict().get('high_school', None)           
+            return high_school_info
+        else:
+            print("No such student exists.")
+        return None

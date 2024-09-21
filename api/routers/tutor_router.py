@@ -53,4 +53,22 @@ def get_student_form_info(id: str) -> []:
     return formInfo
 
 
+# Get highschool info
+@router.get("/get_high_school_info", response_model=str, tags=["highSchoolInfo"])
+def get_high_school_info(id: str) -> str:
+    highSchoolInfo = student_service.get_high_school_info(id)
+    if not highSchoolInfo:
+        raise HTTPException(status_code=404, detail="High school information not found.")
+    return highSchoolInfo
+
+
+# Get parent data
+@router.get("/get_parent_info", response_model=ParentData, tags=["parentInfo"])
+def get_parent_info(id: str) -> ParentData:
+    parentInfo = student_service.get_parent_info(id)
+    if not parentInfo: 
+        raise HTTPException(status_code=404, detail="Parent info not found.")
+    return parentInfo
+
+
 app.include_router(router)
