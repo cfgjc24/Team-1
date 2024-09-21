@@ -34,7 +34,35 @@ class StudentDAO:
         doc_ref.set(data)
         return self.get_student(student_create.studentID)
     
-   
+
+
+   #edits the modules that they have done 
+   def edit_module_completion_status(self, id: str,  updated_module: int, student_update: Student) :
+        data = student_update.dict()
+        doc_ref = db.collection(self.collection_name).document(str(id))
+        
+        # update the following module 
+        if(updated_module == 1):
+            data["studentProgress"]["module1"] = True
+        elif(updated_module == 2):
+            data["studentProgress"]["module2"] = True
+        elif(updated_module == 3):
+            data["studentProgress"]["module3"] = True
+        elif(updated_module == 4):
+            data["studentProgress"]["module4"] = True
+        elif(updated_module == 5):
+            data["studentProgress"]["module5"] = True
+        elif(updated_module == 6):
+            data["studentProgress"]["module6"] = True
+        elif(updated_module == 7):
+            data["studentProgress"]["module7"] = True
+        elif(updated_module == 8):
+            data["studentProgress"]["module8"] = True
+
+        doc_ref.update(data)
+        return self.get_student(id)
+
+
    def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()

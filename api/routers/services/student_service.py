@@ -18,6 +18,10 @@ class StudentService:
     
     def get_first_last_name(self, id: str):
         return student_dao.get_first_last_name(id)
+
+
+    def edit_module_completion_status(self, id:str, student_update: Student, updated_module: int):
+        return student_dao.edit_module_completion_status(id,student_update,updated_module)
     
   
     
