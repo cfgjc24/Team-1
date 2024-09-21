@@ -3,3 +3,4 @@ fastapi
 uvicorn
 firebase_admin
 pydantic
+uuid
