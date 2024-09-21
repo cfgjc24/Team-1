@@ -11,10 +11,11 @@
     padding-left:33%;
 }
 
-.title{
+.form-title-label{
     font-family: 'Gill Sans', serif;
     font-size: 60px;
     font-weight: 400;
+    color: black;
 }
 
 .label-name{
