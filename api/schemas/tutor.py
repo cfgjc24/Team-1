@@ -6,18 +6,15 @@ app = FastAPI()
 
 
 class Tutor(BaseModel):
-    first_name: str = None
-    last_name: str = None
+    name:str = None
     assigned_high_school: str = None
+    is_onboarded:bool = False
     email: str = None
     phone_number: str = None 
     college: str = None
     assigned_students: list = []
 
      
-
-
-items = []
 
 
 

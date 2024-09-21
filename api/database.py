@@ -32,4 +32,11 @@ def healthcheck() -> HealthcheckResponse:
         time=datetime.now(),
     )
 
+# 
+@app.post("/items")
+def create_item(item: Item):
+    items.append(item)
+    return items
+
+
 app.include_router(router)
