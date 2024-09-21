@@ -13,6 +13,15 @@ class FormInfo(TypedDict):
     state: str
     zipcode: str
 
+class StudentProgress(BaseModel):
+    is_onboarded: bool = False
+    modules_completed: int = 0
+    studentID: str = None
+    student_progress_ID: str = None
+    is_graduated: bool = False
+
+
+
 #this is a dictionary for parent data information that is used in the 
 #student object 
 class ParentData(TypedDict):
@@ -48,14 +57,6 @@ class Student(BaseModel):
     studentID: str = None
     
 
-class StudentProgress(BaseModel):
-    is_onboarded: bool = False
-    modules_completed: int = 0
-    studentID: str = None
-    student_progress_ID: str = None
-    is_graduated: bool = False
-
-
 
 # put request (upload the student data)
 
@@ -68,26 +69,3 @@ class StudentProgress(BaseModel):
  # get form information 
  # get the high school 
  #get parent data (dictionary)
-
-@app.get("/")
-def root():
-    return {"Hello": "World"}
-
-
-@app.post("/items")
-def create_item(item: Item):
-    items.append(item)
-    return items
-
-
-@app.get("/items", response_model=list[Item])
-def list_items(limit: int = 10):
-    return items[0:limit]
-
-
-@app.get("/items/{item_id}", response_model=Item)
-def get_item(item_id: int) -> Item:
-    if item_id < len(items):
-        return items[item_id]
-    else:
-        raise HTTPException(status_code=404, detail=f"Item {item_id} not found")
