@@ -1,20 +1,11 @@
 import React, {useState, useEffect} from "react";
-import ProgressBar from "./progressBarComponent"; // Import the progress bar component
-import './progressBar.css';  
-
-// const studentsData = [
-//   { name: "John Doe", progress: 0.75 },
-//   { name: "Jane Smith", progress: 0.45 },
-//   { name: "Alice Johnson", progress: 0.90 },
-//   { name: "Bob Williams", progress: 0.60 },
-// ];
-
+import './TutorProfile.css';
 
 function TutorProfile() {
-  const [tutorsData, setTutors] = useState([])
+  const [tutorsData, setTutors] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/tutors")
+    fetch("/tutors")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -22,11 +13,7 @@ function TutorProfile() {
         return res.json();
       })
       .then((data) => {
-        console.log("got data")
-        var arr = Object.values(data)[0]
-        console.log(arr)
-        setTutors(arr);
-        console.log(tutorsData)
+        setTutors(data); // Assuming data is already the array of tutors
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -36,8 +23,44 @@ function TutorProfile() {
   return (
     <div className="tutor-container">
       <h1>Tutors</h1>
-      <p>{tutorsData}</p>
-      
+      {tutorsData.length > 0 ? (
+        <table className="tutors-table">
+          <thead>
+            <tr>
+              <th>Tutor Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Assigned High School</th>
+              <th>College</th>
+              <th>Assigned Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tutorsData.map((tutor) => (
+              <tr key={tutor.TutorID}>
+                <td>{`${tutor.first_name} ${tutor.last_name}`}</td>
+                <td>{tutor.email || "N/A"}</td>
+                <td>{tutor.phone_number || "N/A"}</td>
+                <td>{tutor.assigned_high_school || "N/A"}</td>
+                <td>{tutor.college || "N/A"}</td>
+                <td>
+                  {tutor.assigned_students.length > 0 ? (
+                    <ul>
+                      {tutor.assigned_students.map((student, index) => (
+                        <li key={index}>{student}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    "No assigned students"
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No tutors available.</p>
+      )}
     </div>
   );
 }

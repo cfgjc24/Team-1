@@ -1,5 +1,5 @@
 import React from "react";
-import './StudentProfile.css'; // Link to your CSS file
+import './StudentProfile.css';
 
 const StudentTable = () => {
   return (
