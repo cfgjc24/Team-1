@@ -1,8 +1,9 @@
+from dataclasses import dataclass, field
 from typing import List
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from dbinstance import db
-from schemas.student import StudentDemographics
+from schemas.student_demographics_schema import StudentDemographics
 
 
 class StudentDemographicsDAO:
@@ -10,7 +11,7 @@ class StudentDemographicsDAO:
 
     def create(self, demographics: StudentDemographics) -> StudentDemographics:
         data = demographics.dict()
-        data["demographicID"] = str(Field(default_factory=uuid4))  
+        data["demographicID"] = str(field(default_factory=uuid4))  
         doc_ref = db.collection(self.collection_name).document(str(demographics.demographicID))
         doc_ref.set(data)  
         return self.get(demographics.demographicID)  
@@ -22,11 +23,11 @@ class StudentDemographicsDAO:
             return StudentDemographics(**doc.to_dict())
         return None
 
-    def list(self) -> List[Item]:
-        items_ref = db.collection(self.collection_name)
+    def list(self) -> List[StudentDemographics]:
+        stud_dem_ref = db.collection(self.collection_name)
         return [
-            Item(**doc.get().to_dict())
-            for doc in items_ref.list_documents()
+            StudentDemographics(**doc.get().to_dict())
+            for doc in stud_dem_ref.list_documents()
             if doc.get().to_dict()
         ]
 
@@ -41,39 +42,39 @@ class StudentDemographicsDAO:
         db.collection(self.collection_name).document(str(id)).delete()
 
     # Gets age demographic
-    def get_age(self, demographicID: UUID) -> Optional[int]:
+    def get_age(self, demographicID: UUID) -> int:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.age
         return None
     # Updates age demographic
-    def update_age(self, demographicID: UUID, age: int) -> Optional[StudentDemographics]:
+    def update_age(self, demographicID: UUID, age: int) -> StudentDemographics:
         doc_ref = db.collection(self.collection_name).document(str(demographicID))
         doc_ref.update({"age": age})
         return self.get(demographicID)
 
     # Gets gender demographic
-    def get_gender(self, demographicID: UUID) -> Optional[str]:
+    def get_gender(self, demographicID: UUID) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.gender
         return None
 
     # Gets disability status demographic
-    def get_disability_status(self, demographicID: UUID) -> Optional[bool]:
+    def get_disability_status(self, demographicID: UUID) -> bool:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.hasDisability
         return None
 
     # Gets race demographic
-    def get_race(self, demographicID: UUID) -> Optional[str]:
+    def get_race(self, demographicID: UUID) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.race
         return None
     # gets sexuality demographic
-    def get_sexuality(self, demographicID: UUID) -> Optional[str]:
+    def get_sexuality(self, demographicID: UUID) -> str:
         demographics = self.get(demographicID)
         if demographics:
             return demographics.sexuality
