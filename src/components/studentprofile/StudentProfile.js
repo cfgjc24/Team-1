@@ -1,37 +1,50 @@
-import React from 'react';
-import './StudentProfile.css';
+import React from "react";
+import './StudentProfile.css'; // Link to your CSS file
 
-const data = [
-  { name: "John Doe", age: 30, gender: "Male" },
-  { name: "Jane Smith", age: 25, gender: "Female" },
-  { name: "Alice Johnson", age: 35, gender: "Female" },
-  { name: "Bob Williams", age: 28, gender: "Male" },
-  { name: "Charlie Brown", age: 40, gender: "Male" }
-];
-
-
-function StudentProfile() {
-
+const StudentTable = () => {
   return (
     <div className="student_table">
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.name}</td>
-                            <td>{val.age}</td>
-                            <td>{val.gender}</td>
-                        </tr>
-                    )
-                })}
-            </table>
-        </div>
-    );
-}
+      <div className="table-container">
+        <h2>Student Information</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>30</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>25</td>
+              <td>Female</td>
+            </tr>
+            <tr>
+              <td>Alice Johnson</td>
+              <td>35</td>
+              <td>Female</td>
+            </tr>
+            <tr>
+              <td>Bob Williams</td>
+              <td>28</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Charlie Brown</td>
+              <td>40</td>
+              <td>Male</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-export default StudentProfile;
+export default StudentTable;

@@ -1,15 +1,30 @@
+/* Center the container with the table and title */
 .student_table {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* This will stack the title and table vertically */
+}
+
+/* Style for the table container */
+.table-container {
+  text-align: center;
 }
 
 table {
-  border: 2px solid forestgreen;
+  border: 2px solid rgb(10, 214, 232);
   width: 800px;
-  height: 200px;
+  height: 300px;
+  position: relative;
+  margin-top: 20px; /* Space between title and table */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: black; /* Adjust color if needed */
 }
 
 th {
