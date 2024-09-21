@@ -10,7 +10,9 @@ from services.tutor_service import TutorService
 router = APIRouter()
 tutor_service = TutorService()
 
-app = FastAPI(title=f"Firestore FastAPI: {"cfg-team1-46273"}", version="0.0.1")
+team_id = "cfg-team1-46273"
+app = FastAPI(title=f"Firestore FastAPI: {team_id}", version="0.0.1")
+
 
 @router.post("/tutor", response_model=Tutor, tags=["tutor_schema"])
 def create_item(tutor_create: Tutor = Body(...)) -> Tutor:

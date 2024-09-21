@@ -11,6 +11,7 @@
 /* Style for the table container */
 .table-container {
   text-align: center;
+  padding-bottom: 500px;
 }
 
 table {
@@ -23,7 +24,7 @@ table {
 
 h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-top: 200px;
   color: black; /* Adjust color if needed */
 }
 
