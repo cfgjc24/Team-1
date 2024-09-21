@@ -1,5 +1,6 @@
 import React from "react";
 import ProgressBar from "./progressBarComponent"; // Import the progress bar component
+import './progressBar.css';  
 
 // Define student data once
 const studentsData = [

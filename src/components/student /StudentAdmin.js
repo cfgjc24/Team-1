@@ -1,6 +1,14 @@
 import React from 'react';
 import './Student.css';
 
+const data = [
+    { name: "John Doe", age: 30, gender: "Male" },
+    { name: "Jane Smith", age: 25, gender: "Female" },
+    { name: "Alice Johnson", age: 35, gender: "Female" },
+    { name: "Bob Williams", age: 28, gender: "Male" },
+    { name: "Charlie Brown", age: 40, gender: "Male" }
+];
+
 function StudentAdmin() {
   return (
     <div className="student_table">
