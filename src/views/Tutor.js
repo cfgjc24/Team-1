@@ -1,8 +1,8 @@
 import './Tutor.css';
 
   const Tutor = () =>  {
-	return (
-	  <div>
+return (
+  <div>
          <div className='left-side'>
             <div className='heading-box'>
                 <h1>Students</h1>
@@ -31,8 +31,8 @@ import './Tutor.css';
                 <button className='button'>Email</button>
             </div>
         </div>
-	  </div>
-	);
+  </div>
+);
   }
   
   export default Tutor;
