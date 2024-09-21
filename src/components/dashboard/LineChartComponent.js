@@ -2,11 +2,17 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { year: 2016, Paris: 100, Bangkok: 200, SanFrancisco: 150 },
-  { year: 2017, Paris: 150, Bangkok: 250, SanFrancisco: 180 },
-  { year: 2018, Paris: 200, Bangkok: 300, SanFrancisco: 210 },
-  { year: 2019, Paris: 250, Bangkok: 350, SanFrancisco: 230 }
+  { year: 2016, Signups: 320, Attended: 210, Graduated: 145 },
+  { year: 2017, Signups: 450, Attended: 300, Graduated: 200 },
+  { year: 2018, Signups: 500, Attended: 350, Graduated: 250 },
+  { year: 2019, Signups: 480, Attended: 360, Graduated: 270 },
+  { year: 2020, Signups: 550, Attended: 400, Graduated: 300 },
+  { year: 2021, Signups: 600, Attended: 450, Graduated: 350 },
+  { year: 2022, Signups: 520, Attended: 400, Graduated: 320 },
+  { year: 2023, Signups: 580, Attended: 420, Graduated: 360 },
+  { year: 2024, Signups: 610, Attended: 460, Graduated: 380 }
 ];
+
 
 function LineChartComponent() {
   return (
@@ -17,9 +23,9 @@ function LineChartComponent() {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="Paris" stroke="#8884d8" />
-        <Line type="monotone" dataKey="Bangkok" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="SanFrancisco" stroke="#ffc658" />
+        <Line type="monotone" dataKey="Signups" stroke="#8884d8" />
+        <Line type="monotone" dataKey="Attended" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="Graduated" stroke="#ffc658" />
       </LineChart>
     </ResponsiveContainer>
   );

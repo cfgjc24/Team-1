@@ -2,13 +2,13 @@ import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'KFC', value: 400 },
-  { name: 'FIAT-Chrysler LLC', value: 300 },
-  { name: 'KLM', value: 300 },
-  { name: 'Aeroflot', value: 200 },
-  { name: 'Lukoil', value: 278 },
-  { name: 'American Express', value: 189 },
-  { name: 'Daimler', value: 239 }
+  { name: 'Asian', value: 213 },
+  { name: 'White', value: 398 },
+  { name: 'Black', value: 287 },
+  { name: 'Hispanic', value: 245 },
+  { name: 'Other', value: 154 },
+  { name: 'Mixed', value: 97 },
+  { name: 'Native American', value: 46 }
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6361', '#FF4D4D', '#4CAF50'];
