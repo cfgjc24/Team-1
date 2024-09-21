@@ -7,7 +7,7 @@ const HomePage = () => {
       {/* Main Section */}
       <div className="intro">
         <div className="intro-content">
-            <h1 className="title">FIRST GENERATION INVESTORS</h1>
+            <h1 className="main-page-title">FIRST GENERATION INVESTORS</h1>
             <p>Inspiring students to own their financial futures</p>
         </div>
       </div>

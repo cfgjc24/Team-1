@@ -41,10 +41,11 @@
     background-color: #fafafa;
   }
   
-  .title {
+  .main-page-title {
     font-family: 'Gill Sans', serif;
     font-size: 60px;
     font-weight: 400;
+    color: white;
     line-height: 80px;
 }
 
