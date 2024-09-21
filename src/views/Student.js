@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Student.css';
+import './student.css';
 
 // Your initial lesson data
 const initialLessons = [
@@ -76,12 +76,12 @@ const ProgressTracker = () => {
         <div id='popupForm' className='popup'>
           <div className='popup-content'>
             <span className='close' onClick={closePopup}>&times;</span>
-            <h2 className="form-title">Form Title</h2>
+            <h2 className="form-title">We Want Your Feedback!</h2>
             <form>
-              <label htmlFor='name'>Name:</label>
-              <input type='text' id='name' name='name' required />
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" required />
+              <label htmlFor='notes'>Summary Notes:</label>
+              <input type='text' id='notes' name='notes' required/>
+              <label htmlFor="comments">Comments:</label>
+              <input type="texts" id="comments" name="comments" required/>
               <input type="submit" value="Submit" />
             </form>
           </div>
