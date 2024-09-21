@@ -3,6 +3,7 @@ import time
 from typing import Any, Callable
 from datetime import datetime
 
+from api.routers import tutor_router
 from logger import logger
 from schemas.health import HealthcheckResponse
 
@@ -10,7 +11,7 @@ from schemas.health import HealthcheckResponse
 from fastapi import FastAPI, Request, APIRouter
 
 
-from routers import admin, student, tutor, health
+from routers import admin, student, health
 
 
 
