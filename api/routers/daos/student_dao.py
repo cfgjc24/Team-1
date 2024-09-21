@@ -13,12 +13,15 @@ class StudentDAO:
         gen_uuid = uuid4()
         data["studentID"] = str(gen_uuid)
         data["tutorID"] = str(student_create.tutorID)
+        data["studentDemographic"]["studentID"] = str(gen_uuid)
+        data["studentProgress.student_progress_ID"] = str(gen_uuid)
+
         print(data["studentID"])
-        doc_ref = db.collection(self.collection_name).document(str(student_create.studentID))
+        doc_ref = db.collection(self.collection_name).document(str(gen_uuid))
         doc_ref.set(data)
         return self.get_student(student_create.studentID)
     
-   def get_student(self, id: UUID) -> Student:
+   def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
@@ -37,3 +40,4 @@ class StudentDAO:
             return specific_value
         else:
             print("No such document exists.")
+
