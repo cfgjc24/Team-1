@@ -30,7 +30,10 @@ class StudentDAO:
         doc = doc_ref.get()
         if doc.exists:
             # Get the specific field (key) you want
-            specific_value = doc.to_dict().get('FormInfo')
+            print(doc)
+
+            specific_value = doc.to_dict().get('form_info', None)
+            print(specific_value)
             return specific_value
         else:
             print("No such document exists.")
