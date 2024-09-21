@@ -16,5 +16,8 @@ class StudentService:
     def get_form_information(self, id: str):
         return student_dao.get_form_information(id)
     
+    def get_first_last_name(self, id: str):
+        return student_dao.get_first_last_name(id)
+    
   
     

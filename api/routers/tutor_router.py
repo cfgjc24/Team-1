@@ -42,6 +42,15 @@ def get_student(id: str) -> Student:
 def get_student_form_info(id: str) -> FormInfo:
     formInfo = student_service.get_form_information(id)
     if not formInfo: 
-        raise HTTPException(status_code=404, detail="Student forminfo  not found.")
+        raise HTTPException(status_code=404, detail="Student form info  not found.")
     return formInfo
+
+@router.get("/get_first_last_name", response_model=[], tags=["formInfo"])
+def get_student_form_info(id: str) -> []:
+    formInfo = student_service.get_first_last_name(id)
+    if not formInfo: 
+        raise HTTPException(status_code=404, detail="Student first and last name not found.")
+    return formInfo
+
+
 app.include_router(router)

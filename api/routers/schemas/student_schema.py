@@ -15,7 +15,14 @@ class FormInfo(TypedDict):
 
 class StudentProgress(BaseModel):
     is_onboarded: bool = False
-    modules_completed: int = 0
+    module1: bool = False
+    module2: bool = False 
+    module3: bool = False 
+    module4: bool = False 
+    module5: bool = False
+    module6: bool = False 
+    module7: bool = False 
+    module8: bool = False 
     studentID: str = None
     student_progress_ID: str = None
     is_graduated: bool = False
