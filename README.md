@@ -22,3 +22,9 @@ Follow the link given in terminal in the format of:
 http://127.0.0.1:8000/docs#/
 
 Try out the get and post!
+
+##For Frontend
+```bash
+npm install
+npm start
+```
