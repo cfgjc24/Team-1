@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List
 from uuid import UUID, uuid4
+from secrets import token_hex
 
 from dbinstance import db
 from schemas.tutor_schema import Tutor
@@ -11,12 +12,11 @@ class TutorDAO:
 
     def create(self, tutor_create: Tutor) -> Tutor:
         data = tutor_create.dict()
-        data["TutorID"] = str(field(default_factory=uuid4))
         doc_ref = db.collection(self.collection_name).document(str(tutor_create.TutorID))
         doc_ref.set(data)
         return self.get(tutor_create.TutorID)
 
-    def get(self, id: UUID) -> Tutor:
+    def get(self, id: str) -> Tutor:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
@@ -31,11 +31,11 @@ class TutorDAO:
             if doc.get().to_dict()
         ]
 
-    # def update(self, id: UUID, item_update: Tutor) -> Tutor:
-    #     data = item_update.dict()
-    #     doc_ref = db.collection(self.collection_name).document(str(id))
-    #     doc_ref.update(data)
-    #     return self.get(id)
+    def update(self, id: UUID, item_update: Tutor) -> Tutor:
+        data = item_update.dict()
+        doc_ref = db.collection(self.collection_name).document(str(id))
+        doc_ref.update(data)
+        return self.get(id)
 
     # def delete(self, id: UUID) -> None:
     #     db.collection(self.collection_name).document(str(id)).delete()

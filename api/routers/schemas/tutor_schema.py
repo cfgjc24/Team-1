@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from dataclasses import dataclass, field
+from uuid import UUID, uuid4
 from schemas.student import *
 
 
@@ -10,4 +12,4 @@ class Tutor(BaseModel):
     phone_number: str = None 
     college: str = None
     assigned_students: list = []
-    TutorID: str = None
+    TutorID: str = str(uuid4()) 

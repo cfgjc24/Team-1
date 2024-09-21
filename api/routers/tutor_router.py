@@ -23,5 +23,19 @@ def list_items() -> List[Tutor]:
         raise HTTPException(status_code=404, detail="Tutors not found.")
     return tutors
 
+@router.get("/tutors/{id}", response_model=Tutor, tags=["tutor_schema"])
+def get_item(id: UUID4) -> Tutor:
+    item = tutor_service.get_item(id)
+    if not item:
+        raise HTTPException(status_code=404, detail=" not found.")
+    return item
+
+@router.put("/tutors/{id}", response_model=Tutor, tags=["tutor_schema"])
+def update_item(id: UUID4, item_update: Tutor = Body(...)) -> Tutor:
+    tutor = tutor_service.get_item(id)
+    if not tutor:
+        raise HTTPException(status_code=404, detail="Item not found.")
+    return tutor_service.update_item(id, item_update)
+
 
 app.include_router(router)
