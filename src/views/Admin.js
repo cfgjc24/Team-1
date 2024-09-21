@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './Admin.css';
 import Dashboard from "../components/dashboard/Dashboard"
+import StudentProfile from "../components/studentprofile/StudentProfile"
 
 // Component to display content based on the selected tab
 function PageSection({ tab }) {
   if (tab === "Dashboard") {
     return <Dashboard/>;
   } else if (tab === "StudentProfiles") {
-    return <h2>Student Profiles Content</h2>;
+    return <StudentProfile/>;
   } else if (tab === "TutorProfiles") {
     return <h2>Tutor Profiles Content</h2>;
   } else if (tab === "AlumniPortal") {
