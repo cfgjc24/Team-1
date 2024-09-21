@@ -13,6 +13,13 @@ class StudentDemographics(BaseModel):
     demographicID: int = 0
     studentID: int = 0
 
+class StudentProgress(BaseModel):
+    is_onboarded:bool = None 
+    modules_completed:int = 0
+    student_id = 0
+    is_graduated:bool = None 
+    student_progress_id:int 
+    
 class Student(BaseModel):
     first_name: str = None
     last_name: str = None
