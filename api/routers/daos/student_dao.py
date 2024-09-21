@@ -8,7 +8,7 @@ class StudentDAO:
     # youll be referencing 
    collection_name = "Student" 
 
-    
+
 
    def create(self, student_create: Student) -> Student: 
         data = student_create.dict()
@@ -20,10 +20,13 @@ class StudentDAO:
         data["tutorID"] = str(student_create.tutorID)
 
         # creating the objects to go inside the create new student 
-        
-        data["studentProgress"][""]
+        #populating student progress default vall - has own UUID 
+        data["studentProgress"]["student_progress_ID"] = str(uuid4())
 
+        #populating demographics 
         data["studentDemographic"]["studentID"] = str(gen_uuid)
+        # student demographic has own uuid
+        data["studentDemographic"]["demographicID"] = str(uuid4())
         
 
         print(data["studentID"])
@@ -31,6 +34,7 @@ class StudentDAO:
         doc_ref.set(data)
         return self.get_student(student_create.studentID)
     
+   
    def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
