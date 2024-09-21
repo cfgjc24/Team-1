@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  .header{
+
+  }
+  .dashboard-container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas: 
+    "side main";
+
+  }
+  .navbar-container {
+    list-style-type: none;
+    background-color: #e9ecef;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .navbar-container ul {
+    display: flex;
+    float: left;
+    margin: 0 10px;
+  }
+  
+  .navbar-container li {
+    margin: 10px;
+    margin-right: 90px; 
+    list-style-type: none;
+  }
+  
+  .navbar-container a {
+    display: flex;
+    text-decoration: none;
+    color: #32373B;
+    text-align: center;
+    padding: 10px 0;
+    transition: color 0.3s, font-size 0.3s, padding 0.3s;
+  }
+  
+  .navbar-container a:hover {
+    color: #0D1321;
+    font-weight: bold;
+    padding: 12px 22px;
+    font-size: 20px;
+  }
+  
+  .sidebar {
+    grid-area: side;
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 30px;
+    height: 50vh;
+    border-radius: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    position: absolute;
+    bottom: 32vh; 
+ }
+ .graphbar1 {
+    grid-area: main;
+    display: flex;
+    /* padding: 100px; */
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    width: 588px;
+    height: 56vh;
+    position: absolute;
+    left: 30vw;
+    border-radius: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 9.2vh;
+  }
+  .graph1 {
+    width: 100%; /* Ensure the graph takes up full width of the parent container */
+    height: 100%;
+    max-width: 600px; /* Add a maximum width to prevent it from growing too large on wide screens */
+    /* background-color: #fff; */
+    padding: 1rem; /* Use rem for responsive padding */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    margin: 0 auto; /* Center the graph horizontally */
+}
+  
+  .sidebar h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+ }
+  
+    .sidebar h2 {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    margin-bottom: 10xpx;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .charts-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .chart {
+    width: 48%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .assigned-risks,
+  .upcoming-meetups {
+    width: 48%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
