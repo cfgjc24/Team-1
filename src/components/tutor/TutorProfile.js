@@ -2,7 +2,6 @@ import React from "react";
 import ProgressBar from "./progressBarComponent"; // Import the progress bar component
 import './progressBar.css';  
 
-// Define student data once
 const studentsData = [
   { name: "John Doe", progress: 0.75 },
   { name: "Jane Smith", progress: 0.45 },
