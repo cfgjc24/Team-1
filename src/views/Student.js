@@ -1,13 +1,9 @@
-import React from 'react';
-//import { BrowserRouter, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './student.css';
-import { useEffect } from 'react';
-import { useState} from 'react';
-import {updateLessonProgress} from 'react';
 
-
+// Your initial lesson data
 const initialLessons = [
-  { week: 'Welcome & Onboarding',  Feedback: 'Feedback', completed: 8, total: 8 },
+  { week: 'Welcome & Onboarding', Feedback: 'Feedback', completed: 8, total: 8 },
   { week: 'Week 1: Lesson 1', Feedback: 'Feedback', completed: 8, total: 8 },
   { week: 'Week 2: Lesson 2', Feedback: 'Feedback', completed: 8, total: 8 },
   { week: 'Week 3: Lesson 3', Feedback: 'Feedback', completed: 8, total: 8 },
@@ -18,53 +14,81 @@ const initialLessons = [
   { week: 'Week 8: Lesson 8', Feedback: 'Feedback', completed: 0, total: 8 },
 ];
 
-
 // Progress tracker component
 const ProgressTracker = () => {
-const [lessons, setLessons] = useState(initialLessons);
+  const [lessons, setLessons] = useState(initialLessons);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-// Optional: Persist state using localStorage
-useEffect(() => {
-const savedProgress = localStorage.getItem('lessonProgress');
-if (savedProgress) {
-setLessons(JSON.parse(savedProgress));
-}
-}, []);
+  // Optional: Persist state using localStorage
+  useEffect(() => {
+    const savedProgress = localStorage.getItem('lessonProgress');
+    if (savedProgress) {
+      setLessons(JSON.parse(savedProgress));
+    }
+  }, []);
 
-const updateLessonProgress = (index) => {
-const newLessons = [...lessons];
-if (newLessons[index].completed < newLessons[index].total) {
-newLessons[index].completed++;
-setLessons(newLessons);
-localStorage.setItem('lessonProgress', JSON.stringify(newLessons));
-}
-}
-};
+  const updateLessonProgress = (index) => {
+    const newLessons = [...lessons];
+    if (newLessons[index].completed < newLessons[index].total) {
+      newLessons[index].completed++;
+      setLessons(newLessons);
+      localStorage.setItem('lessonProgress', JSON.stringify(newLessons));
+    }
+  };
 
-function Student() {
+  const openPopup = () => {
+    setIsPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupVisible(false);
+  };
+
   return (
     <div className="body">
-      <div className="modules"> {
-       initialLessons.map((lesson, index) => (
-      <div
-        key={index}
-        className="lesson"
-        onClick={() => updateLessonProgress(index)}
-      >
-        <p className="week">{lesson.week}</p>
-        <p className="feedback">Feedback</p>
-        <span
-          className={`status ${
-            lesson.completed === lesson.total ? 'completed' : 'incomplete'
-          }`}
-        >
-          {lesson.completed}/{lesson.total} Completed{' '}
-          {lesson.completed === lesson.total ? '✅' : '❌'}
-        </span>
-       </div> ))}
-       </div>
+      <div className="modules">
+        {lessons.map((lesson, index) => (
+          <div
+            key={index}
+            className="lesson"
+            onClick={() => updateLessonProgress(index)}
+          >
+            <p className="week">{lesson.week}</p>
+
+            {/* Add the button over the Feedback text */}
+            <button className="feedback-button" onClick={openPopup}>
+              Feedback
+            </button>
+
+            <span
+              className={`status ${
+                lesson.completed === lesson.total ? 'completed' : 'incomplete'
+              }`}
+            >
+              {lesson.completed}/{lesson.total} Completed{' '}
+              {lesson.completed === lesson.total ? '✅' : '❌'}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {isPopupVisible && (
+        <div id='popupForm' className='popup'>
+          <div className='popup-content'>
+            <span className='close' onClick={closePopup}>&times;</span>
+            <h2>Form Title</h2>
+            <form>
+              <label htmlFor='name'>Name:</label>
+              <input type='text' id='name' name='name' required />
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-export default Student;
+export default ProgressTracker;
