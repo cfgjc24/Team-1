@@ -28,7 +28,7 @@ def list_items() -> List[Tutor]:
 
 @router.get("/students", response_model=List[Student], tags=["student"])
 def get_students() -> List[Student]:
-    students = student_service.get_students()
+    students = student_service.list_students()
     if not students:
         raise HTTPException(status_code=404, detail="Students were  not found.")
     return students 

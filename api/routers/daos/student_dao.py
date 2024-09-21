@@ -70,7 +70,7 @@ class StudentDAO:
             if doc.get().to_dict()
         ]
         
-   def get_student(self, id: str) -> Student:
+    def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
         if doc.exists:
