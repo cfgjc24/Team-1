@@ -4,7 +4,7 @@ import './NavBar.css';
 
 function NavBar() {
   return (
-    <nav className="navbar">
+    <nav className="navbNavBarLandingPagear">
       <Link to="/">
         <img src="/Logo.png" alt="Home" className="logo" />  
       </Link>

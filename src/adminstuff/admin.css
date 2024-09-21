@@ -14,6 +14,7 @@ body {
     "side main";
 
   }
+  /*
   .navbar-container {
     list-style-type: none;
     background-color: #e9ecef;
@@ -54,7 +55,7 @@ body {
     font-weight: bold;
     padding: 12px 22px;
     font-size: 20px;
-  }
+  } */
   
   .sidebar {
     grid-area: side;
@@ -87,7 +88,7 @@ body {
     width: 100%; /* Ensure the graph takes up full width of the parent container */
     height: 100%;
     max-width: 600px; /* Add a maximum width to prevent it from growing too large on wide screens */
-    /* background-color: #fff; */
+    background-color: #fff;
     padding: 1rem; /* Use rem for responsive padding */
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     margin: 0 auto; /* Center the graph horizontally */

@@ -1,10 +1,10 @@
-import './admin.css';
+import './Dashboard.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 
 
-function NavBar() {
+function NavBarAdmin() {
   return (
     <div class="navbar-container">
     <ul>
@@ -13,10 +13,9 @@ function NavBar() {
       <li><a href="#data">Data</a></li>
       <li><a href="#impact">Impact</a></li>
       <li><a href="#news">News</a></li>
-      <li><button id="theme-button">Toggle Dark Mode</button></li>
     </ul>
   </div>
   );
 }
 
-export default NavBar;
+export default NavBarAdmin;
