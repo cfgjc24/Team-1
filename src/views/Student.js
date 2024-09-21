@@ -1,7 +1,6 @@
 import React from 'react';
 //import { BrowserRouter, Link } from 'react-router-dom';
 import './student.css';
-import titleImage from '../../src/firstgeninvestor.png';
 import { useEffect } from 'react';
 import { useState} from 'react';
 import {updateLessonProgress} from 'react';
@@ -45,14 +44,6 @@ localStorage.setItem('lessonProgress', JSON.stringify(newLessons));
 function Student() {
   return (
     <div className="body">
-      <div className= "container">
-        <h2>Student: Bryce Biyeba</h2>        
-      </div>  
-      <img 
-        style={{ height: 150, width: "100%", justifyContent:'center' }} 
-        src={titleImage}
-        alt="title"      
-      />
       <div className="modules"> {
        initialLessons.map((lesson, index) => (
       <div
