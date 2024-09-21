@@ -32,6 +32,7 @@ class StudentDAO:
         print(data["studentID"])
         doc_ref = db.collection(self.collection_name).document(str(gen_uuid))
         doc_ref.set(data)
+
         return self.get_student(student_create.studentID)
     
 
@@ -73,9 +74,10 @@ class StudentDAO:
     def get_student(self, id: str) -> Student:
         doc_ref = db.collection(self.collection_name).document(str(id))
         doc = doc_ref.get()
+        print(doc)
         if doc.exists:
             return Student(**doc.to_dict())
-        return 
+        return {}
     
     def get_form_information(self, id: str) -> map:
         doc_ref = db.collection(self.collection_name).document(str(id))

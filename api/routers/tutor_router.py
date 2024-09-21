@@ -85,12 +85,4 @@ def edit_module_completion_status(id: str, module_number: int, student_update: S
     return student_service.edit_module_completion_status(id, module_number, student_update)
 
 
-@router.put("/update_student_progress/{id}/{module_number}", response_model=Student,  tags=["student"])
-def edit_module_completion_status(id: str, module_number: int, student_update: Student = Body(...)) -> Student:
-    student = student_service.get_student(id)
-    if not student:
-        raise HTTPException(status_code=404, detail="Student not found.")
-    return student_service.edit_module_completion_status(id, module_number, student_update)
-
-
 app.include_router(router)
