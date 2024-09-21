@@ -46,7 +46,7 @@ function Signup() {
 
   return (
     <div className="form-all">
-        <div className="form-title">
+        <div className="account-form-title">
             <h1 className="form-title-label">Create Account</h1>
         </div>
       <form autoComplete="off" className="form" onSubmit={handleSubmit}>
