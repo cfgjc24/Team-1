@@ -26,6 +26,12 @@ def list_items() -> List[Tutor]:
         raise HTTPException(status_code=404, detail="Tutors not found.")
     return tutors
 
+@router.get("/students", response_model=List[Student], tags=["student"])
+def get_students() -> List[Student]:
+    students = student_service.get_students()
+    if not students:
+        raise HTTPException(status_code=404, detail="Students were  not found.")
+    return students 
 
 @router.post("/student", response_model=Student, tags=["student"])
 def create_student(student_create: Student = Body(...)) -> Student: 
